@@ -64,3 +64,45 @@ eric tldr:
 
 ## multiple code files:
 
+you can just compile and link multiple files together:
+e.g. with `main.cpp` and `input.cpp`, you can simply run `g++ main.cpp input.cpp -o main`
+
+## namespaces:
+
+namespaces are to prevent collisions w/ function names
+- e.g. all of cpp standard libraries are in `std` namespace
+- `using namespace std;` allows you to bypass having to assign namespaces
+
+## preprocessor phase:
+
+- happens before compilation
+    - involves looking for *preprocessor directives* => instructions that start with '#'
+
+### examples:
+- `#include`
+    - merges the contents of those files
+- `#define`
+    - defines macros `#define IDENTIFIER substitution_text`
+        - NOTE: macros are scoped from where they are defined to the end of the file 
+    - used in conditional compilation:
+```cpp
+#define CONDITION
+
+#ifdef CONDITION
+    // code that gets compiled
+#endif
+
+#ifdef OTHER_CONDITION
+    // code that does NOT get compiled
+#endif
+
+// other methods:
+
+#ifndef CONDITION
+    // is the opposite of `#ifdef`
+#endif
+
+#if 0
+    // code does not get compiled
+#endif
+```
