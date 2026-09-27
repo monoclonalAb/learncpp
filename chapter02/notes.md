@@ -79,15 +79,17 @@ namespaces are to prevent collisions w/ function names
     - involves looking for *preprocessor directives* => instructions that start with '#'
 
 ### examples:
+
 - `#include`
     - merges the contents of those files
+        - angle brackets searches for *"included"* directories first
+        - speech marks searches for files in our *current* directory
 - `#define`
     - defines macros `#define IDENTIFIER substitution_text`
         - NOTE: macros are scoped from where they are defined to the end of the file 
     - used in conditional compilation:
 ```cpp
 #define CONDITION
-
 #ifdef CONDITION
     // code that gets compiled
 #endif
@@ -106,3 +108,26 @@ namespaces are to prevent collisions w/ function names
     // code does not get compiled
 #endif
 ```
+
+## header files:
+
+- where you put ur function declarations => imported whenever u need them
+    - to include them, you should add the import location in your compilation script, e.g. `g++ -o main -I./source/include main.cpp`
+
+### header guards:
+
+- to prevent duplicate definitions:
+```cpp
+#ifndef HEADER_GUARD
+#define HEADER_GUARD
+    // function definitions
+#endif
+
+// additional technique:
+#pramga once // does the same thing
+
+// NOTE: only doesn't work if header file gets copied multiple times => #pragma once wont work across files (even if identical)
+```
+
+
+
