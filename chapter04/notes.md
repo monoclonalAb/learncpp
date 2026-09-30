@@ -63,6 +63,13 @@ int main()
     - `false == 0` & `true == 1`
     - `std::cout` outputs `0` and `1` (if we want `true` and `false`, we can just do `std::cout << std::boolalpha;`, and toggle back off w/ `std::noboolalpha`)
 
+### characters:
+
+- note that `std::cin >> ch` ignores whitespacec; with `std::cin.get(ch)`, you can actually extract whitespace
+- exists multiple other `char` types
+    - `char8_t`, `char16_t`, or `char32_t` is used for unicode compatability
+    - `wchar_t` should just always be avoided (except when interfacing w/ windows API)
+
 ## sizeof:
 
 - `sizeof` returns... the size of a type / variable
